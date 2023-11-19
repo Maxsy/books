@@ -1,12 +1,12 @@
 import fastify from "fastify";
+import booksRoutes from "./routes/books";
+import process from "process";
 
 const app = fastify({
   logger: true,
 });
 
-app.get("/", async (request, reply) => {
-  return { hello: "world" };
-});
+app.register(booksRoutes);
 
 const start = async () => {
   try {
