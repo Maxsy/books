@@ -6,13 +6,18 @@
     "db:generate": "turbo run db:generate",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "turbo run clean && rm -rf node_modules && rm pnpm-lock.yaml"
   },
   "devDependencies": {
+    "@types/node": "^20.9.2",
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
+    "ts-node-dev": "^2.0.0",
     "tsconfig": "workspace:*",
-    "turbo": "latest"
+    "tsx": "^4.1.4",
+    "turbo": "latest",
+    "typescript": "^5.2.2"
   },
   "packageManager": "pnpm@8.9.0",
   "name": "books"

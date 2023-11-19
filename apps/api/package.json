@@ -1,9 +1,11 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend API of books app",
+  "main": "./src/app.ts",
   "scripts": {
+    "dev": "tsx --watch ./src/app.ts",
+    "clean": "rm -rf ./dist && rm -rf ./node_modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

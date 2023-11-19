@@ -17,6 +17,9 @@
     },
     "db:push": {
       "cache": false
+    },
+    "clean": {
+      "outputs": [".next/**", "!.next/cache/**"]
     }
   }
 }
