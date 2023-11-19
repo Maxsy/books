@@ -5,10 +5,10 @@ export const Book = {
   async create(data: Prisma.BookCreateInput) {
     return client.book.create({ data });
   },
-  async findMany() {
+  async all() {
     return client.book.findMany();
   },
-  async findOne(id: number) {
+  async find(id: number) {
     return client.book.findUnique({ where: { id } });
   },
   async update(id: number, data: Prisma.BookUpdateInput) {

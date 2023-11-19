@@ -13,7 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "database": "workspace:*",
-    "fastify": "^4.24.3"
+    "fastify": "^4.24.3",
+    "pino": "^8.16.2",
+    "pino-pretty": "^10.2.3"
   },
   "devDependencies": {
     "@types/node": "^20.9.2"
