@@ -2,6 +2,8 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "db:push": "turbo run db:push",
+    "db:generate": "turbo run db:generate",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
