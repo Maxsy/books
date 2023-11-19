@@ -1,0 +1,24 @@
+name: books-dev
+version: "3.8"
+services:
+  postgres:
+    container_name: pg-database
+    image: postgres:latest
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: books
+      POSTGRES_PASSWORD: books
+      POSTGRES_DB: books
+
+  redis:
+    container_name: redis-server
+    image: redis:latest
+    volumes:
+      - redis:/data
+    restart: always
+
+volumes:
+  postgres:
+  redis:
