@@ -1,0 +1,9 @@
+FROM node:alpine
+
+WORKDIR /app
+
+COPY apps/api/artifacts .
+
+CMD ["node", "index.js"]
+
+

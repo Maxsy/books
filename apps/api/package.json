@@ -4,6 +4,7 @@
   "description": "Backend API of books app",
   "main": "./src/app.ts",
   "scripts": {
+    "build": "tsup ./src/app.ts --clean --sourcemap && ncc build ./dist/app.js -o ./artifacts && cp ./artifacts/client/* ./artifacts && rm -rf ./artifacts/client",
     "dev": "tsx --watch ./src/app.ts",
     "clean": "rm -rf ./dist && rm -rf ./node_modules",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -4,5 +4,5 @@
       "mode": "auto"
     }
   ],
-  "cSpell.words": ["Fastify", "pino", "tsnd"]
+  "cSpell.words": ["Fastify", "pino", "tsnd", "tsup"]
 }
