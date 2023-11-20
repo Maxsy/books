@@ -8,6 +8,16 @@ import {
 } from "../@types/book";
 
 const booksRoutes: FastifyPluginAsync = async (app, opts): Promise<void> => {
+  app.setErrorHandler((error, request, reply) => {
+    app.log.error(error);
+
+    reply.send({
+      error: {
+        message: "Error encountered while processing request.",
+      },
+    });
+  });
+
   app.get("/books", async (request, reply) => {
     const books = await Book.all();
 
