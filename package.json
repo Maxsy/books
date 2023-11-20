@@ -7,7 +7,8 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "clean": "turbo run clean && rm -rf node_modules && rm pnpm-lock.yaml"
+    "clean": "turbo run clean && rm -rf node_modules && rm pnpm-lock.yaml",
+    "postinstall": "pnpm db:push && pnpm db:generate"
   },
   "devDependencies": {
     "@types/node": "^20.9.2",
