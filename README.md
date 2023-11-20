@@ -2,6 +2,30 @@
 
 An API for a books management application
 
+## 🚀 Setup instructions
+
+This project uses pnpm and the package manager.
+
+Update the `DATABASE_URL` env in `packages/database/.env` with an empty postgres database
+
+After cloning the repo `cd` to the project root and run the following
+
+```
+pnpm install
+docker-compose -f docker/docker-compose.yml up -d
+pnpm dev
+```
+
+## 🚀 To launch a production build locally
+
+```
+pnpm install
+docker-compose -f docker/docker-compose.yml up -d
+pnpm build
+cd docker && docker build ../ -t api -f Dockerfile.api --no-cache
+docker run api -e DATABASE_URL=yourconnectionstring
+```
+
 ## 🎁 What's inside?
 
 This Turborepo includes the following packages/apps:
@@ -9,6 +33,7 @@ This Turborepo includes the following packages/apps:
 ### 📦 Apps and Packages
 
 - `fastify` application for backend API
+- `database` contains prisma schema and generated files for prisma client
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
