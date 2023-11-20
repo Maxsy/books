@@ -17,3 +17,8 @@ export type UpdateBookRequestBody = FastifyRequest<{
 export type DeleteBookRequestParams = FastifyRequest<{
   Params: { id: number };
 }>;
+
+export type BooksWithCustomPagination = Prisma.BookFindManyArgs & {
+  page?: number;
+  query?: string;
+};

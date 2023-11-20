@@ -1,11 +1,13 @@
 import { FastifyPluginAsync, FastifyRequest } from "fastify";
 import { Book } from "../models/book";
 import {
+  BooksWithCustomPagination,
   CreateBookRequestBody,
   DeleteBookRequestParams,
   GetBookRequestParams,
   UpdateBookRequestBody,
 } from "../@types/book";
+import { Prisma } from "database";
 
 const booksRoutes: FastifyPluginAsync = async (app, opts): Promise<void> => {
   app.setErrorHandler((error, request, reply) => {
@@ -18,11 +20,26 @@ const booksRoutes: FastifyPluginAsync = async (app, opts): Promise<void> => {
     });
   });
 
-  app.get("/books", async (request, reply) => {
-    const books = await Book.all();
+  app.get(
+    "/books",
+    async (
+      request: FastifyRequest<{
+        Querystring: BooksWithCustomPagination;
+      }>,
+      reply
+    ) => {
+      const { take, skip, page, query } = request.query;
 
-    reply.send(books);
-  });
+      const books = await Book.all({
+        take,
+        skip,
+        page,
+        query,
+      });
+
+      reply.send(books);
+    }
+  );
 
   app.post("/books", async (request: CreateBookRequestBody, reply) => {
     const book = await Book.create(request.body);
